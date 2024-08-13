@@ -10,11 +10,9 @@ public class Main {
         private String name;
         private String surname;
 
-
         public Author(String name, String surname) {
             this.name = name;
             this.surname = surname;
-            String fullName = surname + " " + name;
         }
 
         public void setName(String name) {
@@ -35,15 +33,13 @@ public class Main {
 
     }
 
-    public static class Book extends Main.Author {
+    public static class Book {
 
         private String title;
         private Author author;
         private int yearOfPublication;
 
         public Book(String title, Author author, int yearOfPublication) {
-            super(author.name, author.surname);
-
             this.title = title;
             this.author = author;
             this.yearOfPublication = yearOfPublication;
@@ -65,8 +61,8 @@ public class Main {
             return this.title;
         }
 
-        public String getAuthorName() {
-            return author.getSurname() + " " + author.getName();
+        public String getAuthor() {
+            return author.name + " " + author.surname;
         }
 
         public int getYearOfPublication() {
@@ -82,10 +78,10 @@ public class Main {
 
         Author welsh = new Author("Irvine", "Welsh");
 
-        Book nighmares = new Book("Marabou Stork Nightmares", welsh, 1994);
+        Book nightmares = new Book("Marabou Stork Nightmares", welsh, 1994);
 
-        nighmares.setYearOfPublication(1995);
-
-        System.out.println("nighmares.getYearOfPublication() = " + nighmares.getYearOfPublication());
+        nightmares.setYearOfPublication(1995);
+        System.out.println("nightmares.getYearOfPublication() = " + nightmares.getYearOfPublication());
+        System.out.println();
     }
 }
